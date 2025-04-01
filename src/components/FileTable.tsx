@@ -7,7 +7,7 @@ interface File {
     download?: string;
 }
 
-interface FileListProps {
+interface FileTableProps {
     files: File[];
 }
 
@@ -42,7 +42,7 @@ const columns: Column[] = [
     }
 ];
 
-export const FileList: React.FC<FileListProps> = ({ files }) => {
+export const FileTable: React.FC<FileTableProps> = ({ files }) => {
 
 
     return (

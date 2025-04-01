@@ -1,6 +1,6 @@
 import { Env } from '../types';
 import { getFileList } from '../files';
-import { FileList } from '../components/FileList';
+import { FileTable } from '../components/FileTable';
 import { renderToStaticMarkup } from '../utils/render';
 import React from 'react';
 
@@ -16,7 +16,7 @@ export async function handleHome(request: Request, env: Env): Promise<Response> 
                 <script src="https://cdn.tailwindcss.com"></script>
             </head>
             <body>
-                ${renderToStaticMarkup(React.createElement(FileList, { files }))}
+                ${renderToStaticMarkup(React.createElement(FileTable, { files }))}
             </body>
         </html>
     `;
