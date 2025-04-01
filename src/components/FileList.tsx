@@ -17,15 +17,18 @@ interface Column {
     render?: (value: any, file: File) => string | React.ReactElement;
 }
 
-const generateDownloadLink = (fileKey: string) => {
-    return `/download?file=${fileKey}`;
-};
-
-
 const columns: Column[] = [
     {
         key: 'key',
-        label: 'File Name'
+        label: 'File Name',
+        render: (_, file: File) => (
+            <a 
+                href={`/download?file=${file.key}`}
+                className="text-blue-500 hover:text-blue-700"
+            >
+                {file.key.split('/').pop()}
+            </a>
+        )
     },
     {
         key: 'size',
@@ -36,18 +39,6 @@ const columns: Column[] = [
         key: 'uploaded',
         label: 'Uploaded',
         render: (value: string) => new Date(value).toLocaleString()
-    },
-    {
-        key: 'download',
-        label: 'Download',
-        render: (_, file: File) => (
-            <a 
-                href={generateDownloadLink(file.key)}
-                className="text-blue-500 hover:text-blue-700"
-            >
-                Download
-            </a>
-        )
     }
 ];
 
@@ -56,7 +47,7 @@ export const FileList: React.FC<FileListProps> = ({ files }) => {
 
     return (
         <div className="min-h-screen bg-gray-100 py-8 px-4">
-            <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-md p-6">
+            <div className="w-full mx-auto bg-white rounded-lg shadow-md p-6">
                 <h1 className="text-xl font-semibold text-gray-800 mb-6">JumpServer Offline Installation Packages</h1>
                 <div className="overflow-x-auto">
                     <table className="min-w-full divide-y divide-gray-200">
