@@ -13,15 +13,18 @@
 
 import { Env } from './types';
 import { checkAuth } from './auth';
-import { getFileList } from './files';
+import { handleRequest } from './routes';
 
 export default {
 	async fetch(request: Request, env: Env): Promise<Response> {
-		const authResponse = await checkAuth(request, env);
-		if (authResponse) {
-			return authResponse;
+		// 第一步：认证检查
+		const authError = await checkAuth(request, env);
+		if (authError) {
+			return authError;
 		}
 
-		return await getFileList(env);
+		// 第二步：路由处理
+		return handleRequest(request, env);
 	}
 } satisfies ExportedHandler<Env>;
+
