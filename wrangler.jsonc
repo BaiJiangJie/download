@@ -13,7 +13,8 @@
 	"r2_buckets": [
 		{
 			"binding": "R2_jumpserver",
-			"bucket_name": "jumpserver"
+			"bucket_name": "jumpserver",
+			"preview_bucket_name": "jumpserver"
 		}
 	]
 	/**
