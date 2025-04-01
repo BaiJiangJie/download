@@ -16,7 +16,14 @@
 			"bucket_name": "jumpserver",
 			"preview_bucket_name": "jumpserver"
 		}
-	]
+	],
+	"d1_databases": [
+		{
+			"binding": "D1_jumpserver",
+			"database_name": "jumpserver",
+			"database_id": "963f7e66-6ce5-437b-9599-b92183b593ce"
+		}
+	],
 	/**
 	 * Smart Placement
 	 * Docs: https://developers.cloudflare.com/workers/configuration/smart-placement/#smart-placement
