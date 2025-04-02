@@ -20,6 +20,16 @@ export async function handleRequest(request: Request, env: Env): Promise<Respons
         return handler(request, env);
     }
 
-    // 如果没有找到匹配的路由，返回 404
+    // 尝试从静态资源中获取
+    try {
+        const response = await env.ASSETS.fetch(request);
+        if (response.ok) {
+            return response;
+        }
+    } catch (e) {
+        console.error('Error fetching static asset:', e);
+    }
+
+    // 如果没有找到匹配的路由或静态资源，返回 404
     return new Response('Not Found', { status: 404 });
 } 

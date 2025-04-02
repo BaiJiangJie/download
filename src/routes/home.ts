@@ -12,7 +12,8 @@ export async function handleHome(request: Request, env: Env): Promise<Response> 
             <head>
                 <meta charset="UTF-8">
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <title>File List</title>
+                <title>JumpServer Enterprise Installation Packages</title>
+                <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2">
                 <script src="https://cdn.tailwindcss.com"></script>
             </head>
             <body>

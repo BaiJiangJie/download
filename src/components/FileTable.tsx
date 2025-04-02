@@ -48,7 +48,7 @@ export const FileTable: React.FC<FileTableProps> = ({ files }) => {
     return (
         <div className="min-h-screen bg-gray-100 py-8 px-4">
             <div className="w-full mx-auto bg-white rounded-lg shadow-md p-6">
-                <h1 className="text-xl font-semibold text-gray-800 mb-6">JumpServer Offline Installation Packages</h1>
+                <h1 className="text-xl font-semibold text-gray-800 mb-6">JumpServer Enterprise Installation Packages</h1>
                 <div className="overflow-x-auto">
                     <table className="min-w-full divide-y divide-gray-200">
                         <thead className="bg-gray-50">
